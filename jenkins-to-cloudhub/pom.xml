@@ -33,7 +33,7 @@
 				<environment>${environment}</environment>
 				<applicationName>${application.name}</applicationName>
 				<workers>${workers}</workers>
-				<wrokerType>${worker.type}</wrokerType>
+				<workerType>${worker.type}</workerType>
 				</cloudHubDeployment>
 				</configuration>
 			</plugin>
