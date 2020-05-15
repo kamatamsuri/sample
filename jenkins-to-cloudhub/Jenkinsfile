@@ -1,0 +1,23 @@
+pipeline{
+ agent any
+ environment {
+    ANYPOINT = credentials('ANYPOINT')
+ }
+ stages {
+ 	stage ('Build'){
+ 		steps {
+ 			withMaven(maven:'maven'){
+ 				sh 'mvn -f addition/pom.xml clean install'
+ 			}
+ 		}
+ 	}
+ 	stage ('Deploy'){
+ 		steps {
+ 			withMaven(maven:'maven'){
+ 				sh 'mvn -f addition/pom.xml package deploy  -Dusername=team444 -Dpassword=Savvy444 -Denvironment=sandbox -DmuleDeploy'
+ 			}
+ 		}
+ 	}
+ }
+
+}
